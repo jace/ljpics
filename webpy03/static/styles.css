@@ -16,3 +16,9 @@ dd {
 .ljuser {
     font-weight: bold;
 }
+
+.ljuser img {
+    vertical-align: bottom;
+    border: 0;
+    padding-right: 1px;
+}

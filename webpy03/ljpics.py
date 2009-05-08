@@ -13,7 +13,7 @@ import re
 import time
 import web
 
-DEFAULT_USERPIC = 'http://www.livejournal.com/img/userinfo.gif'
+DEFAULT_USERPIC = 'http://l-stat.livejournal.com/img/profile_icons/user.gif'
 REFRESH_TIMEOUT = 604800 # 1 week (60s*60m*24h*7d)
 
 render = web.template.render('templates/')
@@ -31,7 +31,7 @@ db = web.database(**db_parameters)
 
 urls = (
     '/', 'Index',
-    '/www/(.*)', 'LinkUserImage',
+    '/url/(.*)', 'LinkUserImage',
     '/img/(.*)', 'UserImage',
     '/json/(.*)', 'UserData',
     '/refresh/(.*)', 'UserRefresh',
@@ -359,10 +359,10 @@ class UserData:
                     'refreshdate': userdata.refreshdate,
                     })
 
-web.webapi.internalerror = web.debugerror
-#application = web.wsgifunc(web.webpyfunc(urls, globals()))
+##web.webapi.internalerror = web.debugerror
 
 app = web.application(urls, globals())
+application = app.wsgifunc()
 
 if __name__ == '__main__':
     import sys

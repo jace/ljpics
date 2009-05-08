@@ -10,7 +10,7 @@ $def with (count)
     <link rel="home" href="/" />
   </head>
   <body>
-    <h1>Gravatar for LiveJournal Userpics</h1>
+    <h1>Interface for LiveJournal Userpics</h1>
     <dl>
         <dt>What?</dt>
         <dd><a href="http://en.gravatar.com/">Gravatar</a> is a service for retrieving a user image for a given email address.
@@ -19,12 +19,12 @@ $def with (count)
         <dt>How do I use it?</dt>
         <dd>Easy. Link to <code>http://ljpic.seacrow.com/img/<strong>username</strong></code> to get that user's userpic.</dd>
         <dt>Link from where?</dt>
-        <dd>This service is primarily intended for theme authors. In your theme, where you normally display a gravatar, add the
-            following logic: if the user did not specify an email address and the link they provided looks like it goes to
-            livejournal.com, use this service to get their pic. Use <code>&lt;img src="<em>(as above)</em>" alt="[userpic]"
+        <dd>This service is primarily intended for blog theme authors. In your theme, where you normally display a gravatar,
+            add the following logic: if the user did not specify an email address and the link they provided looks like it goes
+            to livejournal.com, use this service to get their pic. Use <code>&lt;img src="<em>(as above)</em>" alt="[userpic]"
             /&gt;</code></dd>
         <dt>But parsing a username out of a URL is too much work.</dt>
-        <dd>No problem. We've got you covered. Point to <code>http://ljpic.seacrow.com/www/<strong>livejournal_url</strong></code></dd>
+        <dd>No problem. We've got you covered. Point to <code>http://ljpic.seacrow.com/url/<strong>livejournal_url</strong></code></dd>
         <dt>This only gets me the default userpic. What about userpics for specific keywords?</dt>
         <dd>LiveJournal doesn't publish that information in a parseable format, so we can't pass it on to you.</dd>
         <dt>What do I put in the <code>width</code> and <code>height</code> attributes in the <code>img</code> tag?</dt>
@@ -43,7 +43,7 @@ $def with (count)
             cost. seacrow.com is my personal domain for my web projects.</dd>
         <dt>Who are you and why did you build this?</dt>
         <dd>I'm <span class="ljuser"><a href="http://jace.livejournal.com/profile"><img src="http://www.livejournal.com/img/userinfo.gif"
-            alt="[info]" style="vertical-align: bottom; border: 0; padding-right: 1px;" width="17" height="17" /></a><a
+            alt="[info]" width="17" height="17" /></a><a
             href="http://jace.livejournal.com/">jace</a></span> and I have a blog <a href="http://jace.seacrow.com/">over here</a>. I
             built this because I've been on LiveJournal over nine years and pretty much "grew up" there. Having seen so many services
             rise and fall, I chose to backup my journal to somewhere under my control. Unfortunately, the main thing about LiveJournal
@@ -53,5 +53,9 @@ $def with (count)
         <dd>Sure, but I have no experience with those. If you can submit a patch, I'll be happy to include it. This website is open
             source.</dd>
     </dl>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript" src="http://disqus.com/forums/ljpics/embed.js"></script>
+    <noscript><a href="http://ljpics.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
   </body>
 </html>
