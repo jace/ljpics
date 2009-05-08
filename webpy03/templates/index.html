@@ -1,0 +1,57 @@
+$def with (count)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <title>LiveJournal Userpics</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <link rel="home" href="/" />
+  </head>
+  <body>
+    <h1>Gravatar for LiveJournal Userpics</h1>
+    <dl>
+        <dt>What?</dt>
+        <dd><a href="http://en.gravatar.com/">Gravatar</a> is a service for retrieving a user image for a given email address.
+            It is used on blogs to show your picture when you post a comment. This service does the same thing for LiveJournal
+            userpics.</dd>
+        <dt>How do I use it?</dt>
+        <dd>Easy. Link to <code>http://ljpic.seacrow.com/img/<strong>username</strong></code> to get that user's userpic.</dd>
+        <dt>Link from where?</dt>
+        <dd>This service is primarily intended for theme authors. In your theme, where you normally display a gravatar, add the
+            following logic: if the user did not specify an email address and the link they provided looks like it goes to
+            livejournal.com, use this service to get their pic. Use <code>&lt;img src="<em>(as above)</em>" alt="[userpic]"
+            /&gt;</code></dd>
+        <dt>But parsing a username out of a URL is too much work.</dt>
+        <dd>No problem. We've got you covered. Point to <code>http://ljpic.seacrow.com/www/<strong>livejournal_url</strong></code></dd>
+        <dt>This only gets me the default userpic. What about userpics for specific keywords?</dt>
+        <dd>LiveJournal doesn't publish that information in a parseable format, so we can't pass it on to you.</dd>
+        <dt>What do I put in the <code>width</code> and <code>height</code> attributes in the <code>img</code> tag?</dt>
+        <dd>Drop them. LiveJournal allows free size pics up to 100&times;100 pixels. Unfortunately, there is no way to tell what the
+            dimensions are without downloading and examining the image, which this service does not do.</dd>
+        <dt>It doesn't? How does it work then?</dt>
+        <dd>LiveJournal publishes a <a href="http://www.foaf-project.org/">FOAF</a> feed for each user, containing links to userpics
+            for them and all their friends. We retrieve this data and cache it for up to a week. When you ask for an image using
+            the link above, we simply redirect you to the actual location on LiveJournal's servers.</dd>
+        <dt>Isn't that stealing LiveJournal's bandwidth?</dt>
+        <dd>That's one way to look at it. If I stored images locally, it is potentially violating a user's privacy. If they delete
+            a userpic on LiveJournal, it will automatically stop working on this service, and they don't even have to be aware of this.
+            It would be nice if LiveJournal provided this service themselves, but until they do, I'll keep this running.</dd>
+        <dt>What's seacrow.com? Why don't you have a nice domain like LiveJournalUserPic.com for this service?</dt>
+        <dd>Top level domains cost money. By hosting at a sub-domain, I can do cool things without having to worry about the maintenance
+            cost. seacrow.com is my personal domain for my web projects.</dd>
+        <dt>Who are you and why did you build this?</dt>
+        <dd>I'm <span class="ljuser"><a href="http://jace.livejournal.com/profile"><img src="http://www.livejournal.com/img/userinfo.gif"
+            alt="[info]" style="vertical-align: bottom; border: 0; padding-right: 1px;" width="17" height="17" /></a><a
+            href="http://jace.livejournal.com/">jace</a></span> and I have a blog <a href="http://jace.seacrow.com/">over here</a>. I
+            built this because I've been on LiveJournal over nine years and pretty much "grew up" there. Having seen so many services
+            rise and fall, I chose to backup my journal to somewhere under my control. Unfortunately, the main thing about LiveJournal
+            is the awesome community and personalisation, and saving that as a dump of text turns it lifeless. This service allows you
+            to reattach userpics to comments in a manner that allows other LiveJournal users to retain control over their pictures.</dd>
+        <dt>I use <em>(insert favourite LiveJournal clone site)</em>. Can you make this work for that?</dt>
+        <dd>Sure, but I have no experience with those. If you can submit a patch, I'll be happy to include it. This website is open
+            source.</dd>
+    </dl>
+  </body>
+</html>

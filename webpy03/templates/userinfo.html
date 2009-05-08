@@ -1,0 +1,24 @@
+$def with (username, name, image, userlink, userprofilelink)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <title>LiveJournal Userpic Info</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <link rel="home" href="/" />
+  </head>
+  <body>
+    <h1>LiveJournal Userpic Info</h1>
+    <p>
+      <img src="$image" align="left" style="margin-right: 1em;" />
+      <span class="ljuser"><a href="$userprofilelink"><img
+        src="http://www.livejournal.com/img/userinfo.gif"
+        alt="[info]" style="vertical-align: bottom; border: 0;
+        padding-right: 1px;" width="17" height="17" /></a><a
+        href="$userlink">$username</a></span><br />
+        $name
+    </p>
+  </body>
+</html>
