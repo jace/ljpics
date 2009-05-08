@@ -343,6 +343,7 @@ class UserData:
     Return user data as JSON.
     """
     def GET(self, username):
+        web.header('Content-Type', 'application/json')
         userdata = get_or_refresh_userdata(username)
         if not userdata:
             return simplejson.dumps(None)
