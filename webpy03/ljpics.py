@@ -32,8 +32,11 @@ db = web.database(**db_parameters)
 urls = (
     '/', 'Index',
     '/url/(.*)', 'LinkUserImage',
+    '/geturl', 'GetLinkUserImage',
     '/img/(.*)', 'UserImage',
     '/json/(.*)', 'UserData',
+    '/jsonurl/(.*)', 'LinkUserData',
+    '/getjsonurl', 'GetLinkUserData',
     '/refresh/(.*)', 'UserRefresh',
     '/info/(.*)', 'UserInfo',
     )
@@ -255,6 +258,32 @@ class LinkUserImage:
     """
     def GET(self, url):
         return UserImage().GET(get_username_from_url(url))
+
+
+class GetLinkUserImage:
+    """
+    Retrieve userpic using a GET parameter.
+    """
+    def GET(self):
+        url = web.input('url').url
+        return UserImage().GET(get_username_from_url(url))
+
+
+class LinkUserData:
+    """
+    Retrieve user data given a LiveJournal URL
+    """
+    def GET(self, url):
+        return UserData().GET(get_username_from_url(url))
+
+
+class GetLinkUserData:
+    """
+    Retrieve user data using a GET parameter.
+    """
+    def GET(self):
+        url = web.input('url').url
+        return UserData().GET(get_username_from_url(url))
 
 
 class UserInfo:
