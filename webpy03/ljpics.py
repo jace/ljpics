@@ -372,17 +372,22 @@ class UserData:
     Return user data as JSON.
     """
     def GET(self, username):
+        jsonp = web.input(jsonp=None).jsonp
+        if jsonp:
+            wrapper = jsonp+'(%s)'
+        else:
+            wrapper = '%s'
         web.header('Content-Type', 'application/json')
         userdata = get_or_refresh_userdata(username)
         if not userdata:
-            return simplejson.dumps(None)
+            return wrapper % simplejson.dumps(None)
         else:
             if userdata.blocked in [True, 1, 'True']:
-                return simplejson.dumps(None)
+                return wrapper % simplejson.dumps(None)
             elif userdata.name == '' and userdata.image == '':
-                return simplejson.dumps(None)
+                return wrapper % simplejson.dumps(None)
             else:
-                return simplejson.dumps({
+                return wrapper % simplejson.dumps({
                     'username': userdata.username,
                     'name': userdata.name,
                     'image': userdata.image,
